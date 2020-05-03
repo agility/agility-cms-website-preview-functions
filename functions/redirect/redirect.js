@@ -5,11 +5,13 @@ exports.handler = async (event, context) => {
 		const previewQuery = event.queryStringParameters.agilitypreviewkey
 		const channelID = event.queryStringParameters.AgilityChannelID
 		const lang = event.queryStringParameters.lang
+		const ContentID = event.queryStringParameters.ContentID;
 
 		const path = event.path.substring("/.netlify/functions/redirect".length)
 
 		const baseURL = "https://agilitycms-uat.azurewebsites.net"
 		const gatsbyURL = "https://agility-website-gatsby-1445577254.gtsb.io"
+
 
 
 		//if not Gatsby
@@ -42,6 +44,11 @@ exports.handler = async (event, context) => {
 			|| path.indexOf("/try-agility-headless-cms-lp") != -1
 		) {
 			redirectUrl = `${gatsbyURL}${path}`
+
+			//include the contentid for detail previews...
+			if (ContentID > 0) {
+				redirectUrl = `${redirectUrl}?ContentID=${ContentID}`
+			}
 		}
 
 
@@ -49,13 +56,20 @@ exports.handler = async (event, context) => {
 		if (AgilityPreview == "0") {
 			redirectUrl = `https://agilitycms.com${path}`
 		}
-		return {
-			statusCode: 302,
-			body: `Redirect to ${redirectUrl}`,
 
-			headers: { "location": redirectUrl },
-			// isBase64Encoded: true,
+		return {
+			statusCode: 200,
+			body: redirectUrl
 		}
+
+
+		// return {
+		// 	statusCode: 302,
+		// 	body: `Redirect to ${redirectUrl}`,
+
+		// 	headers: { "location": redirectUrl },
+		// 	// isBase64Encoded: true,
+		// }
 	} catch (err) {
 		return { statusCode: 500, body: err.toString() }
 	}
