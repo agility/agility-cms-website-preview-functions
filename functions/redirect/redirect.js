@@ -57,19 +57,14 @@ exports.handler = async (event, context) => {
 			redirectUrl = `https://agilitycms.com${path}`
 		}
 
+
 		return {
-			statusCode: 200,
-			body: redirectUrl
+			statusCode: 302,
+			body: `Redirect to ${redirectUrl}`,
+
+			headers: { "location": redirectUrl },
+			// isBase64Encoded: true,
 		}
-
-
-		// return {
-		// 	statusCode: 302,
-		// 	body: `Redirect to ${redirectUrl}`,
-
-		// 	headers: { "location": redirectUrl },
-		// 	// isBase64Encoded: true,
-		// }
 	} catch (err) {
 		return { statusCode: 500, body: err.toString() }
 	}
