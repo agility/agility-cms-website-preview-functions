@@ -24,9 +24,8 @@ exports.handler = async (event, context) => {
 			|| path.indexOf("/partners/become-a-partner") != -1
 			|| path.indexOf("/contact-us/chat-sales") != -1
 
-			|| path.indexOf("/resources/posts") != -1
-			|| path.indexOf("/resources/events") != -1
-			|| path.indexOf("/resources/agileliving") != -1
+			|| path.indexOf("/resources") != -1
+			|| path.indexOf("/thank-you") != -1
 
 			|| path === "/community"
 			|| path === "/community/"
