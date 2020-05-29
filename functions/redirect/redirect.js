@@ -21,7 +21,7 @@ exports.handler = async (event, context) => {
 		if (
 			path === "/home"
 			|| path.indexOf("/product/pricing") != -1
-			|| path.indexOf("/partners/become-a-partner") != -1
+			|| path.indexOf("/partners") != -1
 			|| path.indexOf("/contact-us/chat-sales") != -1
 
 			|| path.indexOf("/resources") != -1
