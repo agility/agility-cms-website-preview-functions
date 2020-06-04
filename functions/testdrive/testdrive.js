@@ -80,7 +80,9 @@ exports.handler = async (event, context) => {
 		statusCode: 200,
 		body: json,
 
-		headers: { "Content-Type": "application.json" },
+		headers: {
+			"Content-Type": "application.json",
+			"Access-Control-Allow-Origin": "*" },
 		// isBase64Encoded: true,
 	}
 }
