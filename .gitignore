@@ -1,2 +1,9 @@
 # Local Netlify folder
 .netlify
+
+# environment vars
+.env*
+
+# Dependency directories
+node_modules/
+jspm_packages/
