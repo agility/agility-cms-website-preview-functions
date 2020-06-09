@@ -14,41 +14,41 @@ exports.handler = async (event, context) => {
 
 
 
-		//if not Gatsby
-		let redirectUrl = `${baseURL}${path}?agilitypreviewkey=${encodeURIComponent(previewQuery)}`
+		// //if not Gatsby
+		// let redirectUrl = `${baseURL}${path}?agilitypreviewkey=${encodeURIComponent(previewQuery)}`
 
-		//gatsby
-		if (
-			path === "/home"
-			|| path.indexOf("/product/pricing") != -1
-			|| path.indexOf("/partners") != -1
-			|| path.indexOf("/contact-us/chat-sales") != -1
+		// //gatsby
+		// if (
+		// 	path === "/home"
+		// 	|| path.indexOf("/product/pricing") != -1
+		// 	|| path.indexOf("/partners") != -1
+		// 	|| path.indexOf("/contact-us/chat-sales") != -1
 
-			|| path.indexOf("/resources") != -1
-			|| path.indexOf("/thank-you") != -1
+		// 	|| path.indexOf("/resources") != -1
+		// 	|| path.indexOf("/thank-you") != -1
 
-			|| path === "/community"
-			|| path === "/community/"
-			|| path.indexOf("/community/events") != -1
-			|| path.indexOf("/community/agileliving") != -1
+		// 	|| path === "/community"
+		// 	|| path === "/community/"
+		// 	|| path.indexOf("/community/events") != -1
+		// 	|| path.indexOf("/community/agileliving") != -1
 
-			//footer links
-			|| path.indexOf("/privacy-policy") != -1
-			|| path.indexOf("/customer-agreement") != -1
-			|| path.indexOf("/service-level-agreement") != -1
-			|| path.indexOf("/gdpr") != -1
-			|| path.indexOf("/security") != -1
+		// 	//footer links
+		// 	|| path.indexOf("/privacy-policy") != -1
+		// 	|| path.indexOf("/customer-agreement") != -1
+		// 	|| path.indexOf("/service-level-agreement") != -1
+		// 	|| path.indexOf("/gdpr") != -1
+		// 	|| path.indexOf("/security") != -1
 
-			//landing page
-			|| path.indexOf("/try-agility-headless-cms-lp") != -1
-		) {
-			redirectUrl = `${gatsbyURL}${path}`
+		// 	//landing page
+		// 	|| path.indexOf("/try-agility-headless-cms-lp") != -1
+		// ) {
+			let redirectUrl = `${gatsbyURL}${path}`
 
 			//include the contentid for detail previews...
 			if (ContentID > 0) {
 				redirectUrl = `${redirectUrl}?ContentID=${ContentID}`
 			}
-		}
+		//}
 
 
 		//LIVE MODE
